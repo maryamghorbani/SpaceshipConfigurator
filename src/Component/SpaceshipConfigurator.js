@@ -1,5 +1,17 @@
 import React from "react";
 
-const SpaceshipConfigurator = () => {};
+//import component
+import Card from "./UI/Crd";
+
+//import styles
+import classes from './SpaceshipConfigurator.module.css'
+
+const SpaceshipConfigurator = () => {
+    return(
+        <Card>
+            <div className={classes.title}>Spaceship Configurator</div>
+        </Card>
+    )
+};
 
 export default SpaceshipConfigurator;
