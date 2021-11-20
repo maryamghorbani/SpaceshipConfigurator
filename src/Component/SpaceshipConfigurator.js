@@ -4,7 +4,7 @@ import React from "react";
 import Card from "./UI/Crd";
 
 //import styles
-import classes from './SpaceshipConfigurator.module.css'
+import classes from './SpaceshipConfigurator.module.scss'
 
 const SpaceshipConfigurator = () => {
     return(
