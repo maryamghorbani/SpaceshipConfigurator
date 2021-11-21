@@ -1,8 +1,13 @@
 @import "src/Variable";
 
 
-.configuratorWrapper {
+.Wrapper {
     padding: 2% 1% 1%;
+}
+.configuratorWrapper {
+    display: flex;
+    flex-direction: row;
+
 }
 .title {
     text-align: center;
