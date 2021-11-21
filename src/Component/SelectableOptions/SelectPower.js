@@ -14,15 +14,15 @@ const SelectPower = () => {
             <div className={`${classes.boxWrapper} ${grid.grid}`}>
                 <Card className={`${classes.box} ${grid.gridCol4}`}>
                     <p>100 MV</p>
-                    <p>+0 €</p>
+                    <p>+0€</p>
                 </Card>
                 <Card className={`${classes.box} ${grid.gridCol4}`}>
                     <p>150 MV</p>
-                    <p>+200 €</p>
+                    <p>+200€</p>
                 </Card>
                 <Card className={`${classes.box} ${grid.gridCol4}`}>
                     <p>200 MV</p>
-                    <p>+500 €</p>
+                    <p>+500€</p>
                 </Card>
             </div>
         </div>

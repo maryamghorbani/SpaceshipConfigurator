@@ -2,4 +2,24 @@
 
 .receipt {
   background-color: $second-background-color;
+  margin-top: 10%;
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 6%;
+
+    p {
+
+      &:last-of-type {
+        color: white;
+      }
+    }
+  }
+  .total {
+    margin: 0;
+    font-size: 1.5em;
+    border-top: 4px solid $border-color;
+  }
 }

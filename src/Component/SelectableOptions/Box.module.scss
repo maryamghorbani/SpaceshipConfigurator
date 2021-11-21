@@ -1,3 +1,5 @@
+@import "src/Variable";
+
 .boxTitle {
   margin: auto 1% 2%;
 }
@@ -9,4 +11,20 @@
 .box {
   margin: 0 2%;
   text-align: center;
+}
+.colorBox {
+  width: 70px;
+  height: 30px;
+  border-radius: $border-radius;
+  display: flex;
+  margin: 8% auto;
+}
+.snowBox {
+  background-color: $white;
+}
+.volcanoBox {
+  background-color: $orange;
+}
+.skyBox {
+  background-color: $blue;
 }

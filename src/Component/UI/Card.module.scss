@@ -1,0 +1,8 @@
+@import 'src/Variable';
+
+.card {
+    background-color: transparent;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    margin: 2% auto;
+}

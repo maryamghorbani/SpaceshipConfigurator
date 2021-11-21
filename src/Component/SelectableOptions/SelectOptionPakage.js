@@ -17,11 +17,11 @@ const SelectOptionPakage = () => {
                 </Card>
                 <Card className={`${classes.box} ${grid.gridCol4}`}>
                     <p>Sport</p>
-                    <p>+100 €</p>
+                    <p>+100€</p>
                 </Card>
                 <Card className={`${classes.box} ${grid.gridCol4}`}>
                     <p>Lux</p>
-                    <p>+500 €</p>
+                    <p>+500€</p>
                 </Card>
             </div>
         </div>

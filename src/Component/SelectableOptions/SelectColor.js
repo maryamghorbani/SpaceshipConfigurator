@@ -13,15 +13,18 @@ const SelectColor = () => {
             <p className={classes.boxTitle}>Select color:</p>
             <div className={`${classes.boxWrapper} ${grid.grid}`}>
                 <Card className={`${classes.box} ${grid.gridCol4}`}>
-                    <p>+0 €</p>
+                    <div className={`${classes.colorBox} ${classes.snowBox}`}></div>
+                    <p>+0€</p>
                     <p>Snow</p>
                 </Card>
                 <Card className={`${classes.box} ${grid.gridCol4}`}>
-                    <p>+100 €</p>
+                    <div className={`${classes.colorBox} ${classes.volcanoBox}`}></div>
+                    <p>+100€</p>
                     <p>Volcano</p>
                 </Card>
                 <Card className={`${classes.box} ${grid.gridCol4}`}>
-                    <p>+100 €</p>
+                    <div className={`${classes.colorBox} ${classes.skyBox}`}></div>
+                    <p>+100€</p>
                     <p>Sky</p>
                 </Card>
             </div>

@@ -14,11 +14,11 @@ const WrapDrive = () => {
             <div className={`${classes.boxWrapper} ${grid.grid}`}>
                 <Card className={`${classes.box} ${grid.gridCol4}`}>
                     <p>No</p>
-                    <p>+0 €</p>
+                    <p>+0€</p>
                 </Card>
                 <Card className={`${classes.box} ${grid.gridCol4}`}>
                     <p>Yes</p>
-                    <p>+1000 €</p>
+                    <p>+1000€</p>
                 </Card>
             </div>
         </div>
