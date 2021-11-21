@@ -1,9 +1,20 @@
 import React from "react";
 
-const SelectColor = props => {
+//import components
+import SelectColor from "./SelectableOptions/SelectColor";
+import SelectPower from "./SelectableOptions/SelectPower";
+import WrapDrive from "./SelectableOptions/WrapDrive";
+import SelectOptionPakage from "./SelectableOptions/SelectOptionPakage";
+
+const SelectableOptions = props => {
     return(
-        <div className={props.className}>select color</div>
+        <div className={props.className}>
+            <SelectColor/>
+            <SelectPower/>
+            <WrapDrive/>
+            <SelectOptionPakage/>
+        </div>
     )
 };
 
-export default SelectColor;
+export default SelectableOptions;

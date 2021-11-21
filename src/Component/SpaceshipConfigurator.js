@@ -15,8 +15,8 @@ const SpaceshipConfigurator = () => {
             <div>
                 <p className={classes.title}>Spaceship Configurator</p>
                 <div className={grid.grid}>
-                    <SelectableOptions className={grid.gridCol9}/>
-                    <Receipt className={grid.gridCol3}/>
+                    <SelectableOptions className={grid.gridCol8}/>
+                    <Receipt className={grid.gridCol4}/>
                 </div>
             </div>
         </Card>
