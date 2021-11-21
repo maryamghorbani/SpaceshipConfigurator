@@ -1,5 +1,9 @@
 import React from "react";
 
-const SelectColor = () => {};
+const SelectColor = props => {
+    return(
+        <div className={props.className}>select color</div>
+    )
+};
 
 export default SelectColor;
