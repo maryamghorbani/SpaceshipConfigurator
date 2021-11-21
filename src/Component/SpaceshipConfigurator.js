@@ -9,7 +9,9 @@ import classes from './SpaceshipConfigurator.module.scss'
 const SpaceshipConfigurator = () => {
     return(
         <Card>
-            <div className={classes.title}>Spaceship Configurator</div>
+            <div className={classes.configuratorWrapper}>
+                <div className={classes.title}>Spaceship Configurator</div>
+            </div>
         </Card>
     )
 };
