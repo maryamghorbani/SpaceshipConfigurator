@@ -1,7 +1,7 @@
 import React from "react";
 
 //import components
-import Card from "../UI/Crd";
+import Card from "../UI/Card";
 
 //import styles
 import classes from './Box.module.scss'

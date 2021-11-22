@@ -1,39 +1,29 @@
 import React, {useState} from "react";
 
 //import components
-import Card from "./UI/Crd";
+import Card from "./UI/Card";
 
 //import styles
 import classes from './Receipt.module.scss'
 
 const Receipt = props => {
+    const {items, totalPrice} = {...props}
 
-    return(
+    return (
         <div className={props.className}>
             <Card className={classes.receipt}>
-                <div className={classes.row}>
-                    <p>Base price:</p>
-                    <p>1000€</p>
-                </div>
-                <div className={classes.row}>
-                    <p>color:</p>
-                    <p>{props.item}</p>
-                </div>
-                <div className={classes.row}>
-                    <p>power:</p>
-                    <p>+200€</p>
-                </div>
-                <div className={classes.row}>
-                    <p>wrap drive:</p>
-                    <p>+0€</p>
-                </div>
-                <div className={classes.row}>
-                    <p>option package:</p>
-                    <p>+0€</p>
-                </div>
+                {
+                    Object.keys(items).map(key =>
+                        <div key={Math.random()} className={classes.row}>
+                            <p>{items[key].title}:</p>
+                            <p>{items[key].prefix}{items[key].price}€</p>
+                        </div>
+                    )
+
+                }
                 <div className={`${classes.row} ${classes.total}`}>
                     <p>Total:</p>
-                    <p>1200€</p>
+                    <p>{totalPrice}€</p>
                 </div>
             </Card>
         </div>
