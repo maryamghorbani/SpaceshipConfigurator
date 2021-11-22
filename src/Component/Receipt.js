@@ -16,7 +16,7 @@ const Receipt = props => {
                 </div>
                 <div className={classes.row}>
                     <p>color:</p>
-                    <p>+0€</p>
+                    <p>{props.colorPrice}</p>
                 </div>
                 <div className={classes.row}>
                     <p>power:</p>

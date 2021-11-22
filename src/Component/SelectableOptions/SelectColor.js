@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 //import components
 import Card from "../UI/Crd";
@@ -7,22 +7,31 @@ import Card from "../UI/Crd";
 import classes from './Box.module.scss'
 import grid from "../UI/grid.module.scss";
 
-const SelectColor = () => {
+const SelectColor = props => {
+
+    const [colorPrice, setColorPrice] = useState(0);
+
+    const changeColorPrice = event => {
+        setColorPrice(event.target.firstChild);
+        props.onGetColoPreice(colorPrice);
+    }
+
+
     return (
         <div>
             <p className={classes.boxTitle}>Select color:</p>
             <div className={`${classes.boxWrapper} ${grid.grid}`}>
-                <Card className={`${classes.box} ${grid.gridCol4}`}>
+                <Card className={`${classes.box} ${grid.gridCol4}`} onClick={changeColorPrice}>
                     <div className={`${classes.colorBox} ${classes.snowBox}`}></div>
                     <p>+0€</p>
                     <p>Snow</p>
                 </Card>
-                <Card className={`${classes.box} ${grid.gridCol4}`}>
+                <Card className={`${classes.box} ${grid.gridCol4}`} onClick={changeColorPrice}>
                     <div className={`${classes.colorBox} ${classes.volcanoBox}`}></div>
-                    <p>+100€</p>
+                    <p id='price'>+100€</p>
                     <p>Volcano</p>
                 </Card>
-                <Card className={`${classes.box} ${grid.gridCol4}`}>
+                <Card className={`${classes.box} ${grid.gridCol4}`} onClick={changeColorPrice}>
                     <div className={`${classes.colorBox} ${classes.skyBox}`}></div>
                     <p>+100€</p>
                     <p>Sky</p>

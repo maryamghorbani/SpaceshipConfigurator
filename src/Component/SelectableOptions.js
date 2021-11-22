@@ -7,9 +7,14 @@ import WrapDrive from "./SelectableOptions/WrapDrive";
 import SelectOptionPakage from "./SelectableOptions/SelectOptionPakage";
 
 const SelectableOptions = props => {
-    return(
+
+    const getColorPriceHandler = (colorPrice) => {
+        console.log(colorPrice)
+    };
+
+    return (
         <div className={props.className}>
-            <SelectColor/>
+            <SelectColor onGetColoPreice={getColorPriceHandler}/>
             <SelectPower/>
             <WrapDrive/>
             <SelectOptionPakage/>
