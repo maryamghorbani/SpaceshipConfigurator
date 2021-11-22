@@ -8,13 +8,13 @@ import SelectOptionPakage from "./SelectableOptions/SelectOptionPakage";
 
 const SelectableOptions = props => {
 
-    const getColorPriceHandler = (colorPrice) => {
-        console.log(colorPrice)
+    const receivedColorPriceHandler = (data) => {
+        props.onGetColorPrice(data)
     };
 
     return (
         <div className={props.className}>
-            <SelectColor onGetColoPreice={getColorPriceHandler}/>
+            <SelectColor onRecievedColoPreice={receivedColorPriceHandler}/>
             <SelectPower/>
             <WrapDrive/>
             <SelectOptionPakage/>

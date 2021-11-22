@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 //import components
 import Card from "./UI/Crd";
@@ -7,6 +7,7 @@ import Card from "./UI/Crd";
 import classes from './Receipt.module.scss'
 
 const Receipt = props => {
+
     return(
         <div className={props.className}>
             <Card className={classes.receipt}>
@@ -16,7 +17,7 @@ const Receipt = props => {
                 </div>
                 <div className={classes.row}>
                     <p>color:</p>
-                    <p>{props.colorPrice}</p>
+                    <p>{props.item}</p>
                 </div>
                 <div className={classes.row}>
                     <p>power:</p>

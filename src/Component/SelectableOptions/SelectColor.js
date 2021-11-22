@@ -9,11 +9,11 @@ import grid from "../UI/grid.module.scss";
 
 const SelectColor = props => {
 
-    const [colorPrice, setColorPrice] = useState(0);
+    const [colorPrice, setColorPrice] = useState();
 
     const changeColorPrice = event => {
-        setColorPrice(event.target.firstChild);
-        props.onGetColoPreice(colorPrice);
+        setColorPrice('hh');
+        props.onRecievedColoPreice(colorPrice);
     }
 
 
