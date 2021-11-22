@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 //import components
 import Card from "../UI/Card";
@@ -7,19 +7,28 @@ import Card from "../UI/Card";
 import classes from './Box.module.scss'
 import grid from "../UI/grid.module.scss";
 
-const WrapDrive = () => {
+const WrapDrive = (props) => {
+
+    const {items, onReceivedItem} = {...props}
+    const [indexCurrentItem, setIndexCurrentItem] = useState()
+
+    const onSelectedItem = index => {
+        setIndexCurrentItem(index)
+        onReceivedItem(items[index])
+    }
+
     return (
         <div>
-            <p className={classes.boxTitle}>Select drive:</p>
+            <p className={classes.boxTitle}>Wrap drive:</p>
             <div className={`${classes.boxWrapper} ${grid.grid}`}>
-                <Card className={`${classes.box} ${grid.gridCol4}`}>
-                    <p>No</p>
-                    <p>+0€</p>
-                </Card>
-                <Card className={`${classes.box} ${grid.gridCol4}`}>
-                    <p>Yes</p>
-                    <p>+1000€</p>
-                </Card>
+                    {items?.map((item, index) => {
+                        return (
+                            <Card key={Math.random()} className={`${classes.box} ${grid.gridCol4}`} onClick={e => onSelectedItem(index)} active={index === indexCurrentItem}>
+                                <p>{item.title}</p>
+                                <p>+{item.price}€</p>
+                            </Card>
+                        )
+                    })}
             </div>
         </div>
     )

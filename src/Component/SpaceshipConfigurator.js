@@ -10,12 +10,14 @@ import grid from './UI/grid.module.scss'
 import SelectColor from "./SelectableOptions/SelectColor";
 import SelectPower from "./SelectableOptions/SelectPower";
 import WrapDrive from "./SelectableOptions/WrapDrive";
-import SelectOptionPakage from "./SelectableOptions/SelectOptionPakage";
+import SelectOptionPackage from "./SelectableOptions/SelectOptionPackage";
 
 const SpaceshipConfigurator = props => {
 
-    // const [finalColorPrice, setFinalColorPrice] = useState();
     const [colors, setColors] = useState([])
+    const [powers, setPowers] = useState([])
+    const [wrapDrives, setWrapDrives] = useState([])
+    const [optionPackages, setOptionPackages] = useState([])
     const [receiptItems, setReceiptItems] = useState({
         "basePrice": {
             title: "Base Price",
@@ -66,18 +68,96 @@ const SpaceshipConfigurator = props => {
         ])
     }, [])
 
-    //
+    // fetch powers
+    useEffect(() => {
+        setPowers([
+            {
+                price: 0,
+                title: "100 MV",
+            },
+            {
+                price: 200,
+                title: "150 MV",
+            },
+            {
+                price: 500,
+                title: "200 MV",
+            }
+        ])
+    }, [])
+
+    // fetch wrap drives
+    useEffect(() => {
+        setWrapDrives([
+            {
+                price: 0,
+                title: "No",
+            },
+            {
+                price: 1000,
+                title: "Yes",
+            },
+        ])
+    }, [])
+
+    // fetch option packages
+    useEffect(() => {
+        setOptionPackages([
+            {
+                price: 0,
+                title: "Basic",
+            },
+            {
+                price: 100,
+                title: "Sport",
+            },
+            {
+                price: 500,
+                title: "Lux",
+            },
+        ])
+    }, [])
+
+    // receipt items
     useEffect(() =>{
         setReceiptTotalPrice(Object.keys(receiptItems).reduce(function(prev, current) {
             return prev + +receiptItems[current].price
         }, 0))
     }, [receiptItems])
 
-    const onReceivedColor = color => {
+    const onReceivedColor = item => {
         setReceiptItems(prevState => ({
             ...prevState, "color": {
                 title: "color",
-                price: color.price,
+                price: item.price,
+                prefix: "+",
+            }
+        }))
+    }
+
+    const onReceivedPower = item =>{
+        setReceiptItems(prevState => ({
+            ...prevState, "power": {
+                title: "power",
+                price: item.price,
+                prefix: "+",
+            }
+        }))
+    }
+    const onReceivedWrapDrive = item =>{
+        setReceiptItems(prevState => ({
+            ...prevState, "wrapDrive": {
+                title: "wrap drive",
+                price: item.price,
+                prefix: "+",
+            }
+        }))
+    }
+    const onReceivedOptionPackage = item =>{
+        setReceiptItems(prevState => ({
+            ...prevState, "optionPackage": {
+                title: "option package",
+                price: item.price,
                 prefix: "+",
             }
         }))
@@ -89,10 +169,10 @@ const SpaceshipConfigurator = props => {
                 <p className={classes.title}>Spaceship Configurator</p>
                 <div className={grid.grid}>
                     <div className={grid.gridCol8}>
-                        <SelectColor colors={colors} onReceivedColor={onReceivedColor}/>
-                        <SelectPower/>
-                        <WrapDrive/>
-                        <SelectOptionPakage/>
+                        <SelectColor items={colors} onReceivedItem={onReceivedColor}/>
+                        <SelectPower items={powers} onReceivedItem={onReceivedPower}/>
+                        <WrapDrive items={wrapDrives} onReceivedItem={onReceivedWrapDrive}/>
+                        <SelectOptionPackage items={optionPackages} onReceivedItem={onReceivedOptionPackage}/>
                     </div>
                     <Receipt className={grid.gridCol4} items={receiptItems} totalPrice={receiptTotalPrice}/>
                 </div>

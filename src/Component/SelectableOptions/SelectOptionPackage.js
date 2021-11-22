@@ -5,9 +5,9 @@ import Card from "../UI/Card";
 
 //import styles
 import classes from './Box.module.scss'
-import grid from '../UI/grid.module.scss'
+import grid from "../UI/grid.module.scss";
 
-const SelectPower = props => {
+const SelectOptionPackage = (props) => {
     const {items, onReceivedItem} = {...props}
     const [indexCurrentItem, setIndexCurrentItem] = useState()
 
@@ -18,21 +18,20 @@ const SelectPower = props => {
 
     return (
         <div>
-            <p className={classes.boxTitle}>Select power:</p>
+            <p className={classes.boxTitle}>Select option package:</p>
             <div className={`${classes.boxWrapper} ${grid.grid}`}>
                 {items?.map((item, index) => {
                     return (
                         <Card key={Math.random()} className={`${classes.box} ${grid.gridCol4}`}
                               onClick={e => onSelectedItem(index)} active={index === indexCurrentItem}>
                             <p>{item.title}</p>
-                            <p>+{item.price}€</p>
+                            <p>{item.price > 0 ? `+${item.price}€` : '' }</p>
                         </Card>
                     )
                 })}
-
             </div>
         </div>
     )
 };
 
-export default SelectPower;
+export default SelectOptionPackage;

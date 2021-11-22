@@ -9,24 +9,24 @@ import grid from "../UI/grid.module.scss";
 
 const SelectColor = props => {
 
-    const {colors, onReceivedColor} = {...props}
-    const [indexCurrentColor, setIndexCurrentColor] = useState()
+    const {items, onReceivedItem} = {...props}
+    const [indexCurrentItem, setIndexCurrentItem] = useState()
 
-    const changeColorPrice = index => {
-        setIndexCurrentColor(index)
-        onReceivedColor(colors[index])
+    const onSelectedItem = index => {
+        setIndexCurrentItem(index)
+        onReceivedItem(items[index])
     }
 
     return (
         <div>
             <p className={classes.boxTitle}>Select color:</p>
             <div className={`${classes.boxWrapper} ${grid.grid}`}>
-                {colors?.map((color, index) => {
+                {items?.map((item, index) => {
                     return (
-                        <Card key={color.title} className={`${classes.box} ${grid.gridCol4}`} onClick={e => changeColorPrice(index)} active={index === indexCurrentColor}>
-                            <div className={classes.colorBox} style={{backgroundColor: `${color.color}`}}/>
-                            <p>+{color.price}€</p>
-                            <p>{color.title}</p>
+                        <Card key={item.title} className={`${classes.box} ${grid.gridCol4}`} onClick={e => onSelectedItem(index)} active={index === indexCurrentItem}>
+                            <div className={classes.colorBox} style={{backgroundColor: `${item.color}`}}/>
+                            <p>+{item.price}€</p>
+                            <p>{item.title}</p>
                         </Card>
                     )
                 })}
