@@ -106,14 +106,33 @@ const SpaceshipConfigurator = props => {
             {
                 price: 0,
                 title: "Basic",
+                features: [
+                    "Air conditioning",
+                    "Cloths seats",
+                    "Fm radio"
+                ],
             },
             {
                 price: 100,
                 title: "Sport",
+                features: [
+                    "Air conditioning",
+                    "Cloths seats",
+                    "Fm radio",
+                    "Personal tech support"
+                ],
             },
             {
                 price: 500,
                 title: "Lux",
+                features: [
+                    "Air conditioning",
+                    "Luxury seats",
+                    "Fm radio",
+                    "Chrome wheels",
+                    "Window tint",
+                    "Subwoofer"
+                ],
             },
         ])
     }, [])

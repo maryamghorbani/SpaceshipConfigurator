@@ -25,7 +25,12 @@ const SelectOptionPackage = (props) => {
                         <Card key={Math.random()} className={`${classes.box} ${grid.gridCol4}`}
                               onClick={e => onSelectedItem(index)} active={index === indexCurrentItem}>
                             <p>{item.title}</p>
-                            <p>{item.price > 0 ? `+${item.price}€` : '' }</p>
+                            <p>{item.price > 0 ? `+${item.price}€` : <p></p> }</p>
+                            <div className={classes.subBox}>
+                                {item.features.map(item => {
+                                    return <div>{item}</div>
+                                })}
+                            </div>
                         </Card>
                     )
                 })}
