@@ -1,11 +1,12 @@
 import React, {useState} from "react";
+import {Col, Container, Row} from "react-bootstrap";
 
 //import components
 import Card from "../UI/Card";
 
 //import styles
 import classes from './Box.module.scss'
-import grid from "../UI/grid.module.scss";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const SelectColor = props => {
 
@@ -18,20 +19,22 @@ const SelectColor = props => {
     }
 
     return (
-        <div>
-            <p className={classes.boxTitle}>Select color:</p>
-            <div className={`${classes.boxWrapper} ${grid.grid}`}>
+        <Container>
+            <Row xs={12} className={classes.boxTitle}>Select color:</Row>
+            <Row xs={12}>
                 {items?.map((item, index) => {
                     return (
-                        <Card key={item.title} className={`${classes.box} ${grid.gridCol4}`} onClick={e => onSelectedItem(index)} active={index === indexCurrentItem}>
-                            <div className={classes.colorBox} style={{backgroundColor: `${item.color}`}}/>
-                            <p>+{item.price}€</p>
-                            <p>{item.title}</p>
-                        </Card>
+                        <Col xs={12} sm={4}>
+                            <Card key={item.title} className={classes.box} onClick={e => onSelectedItem(index)} active={index === indexCurrentItem}>
+                                <div className={classes.colorBox} style={{backgroundColor: `${item.color}`}}/>
+                                <p>+{item.price}€</p>
+                                <p>{item.title}</p>
+                            </Card>
+                        </Col>
                     )
                 })}
-            </div>
-        </div>
+            </Row>
+        </Container>
     )
 };
 

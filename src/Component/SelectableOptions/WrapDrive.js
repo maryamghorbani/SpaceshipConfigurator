@@ -1,11 +1,12 @@
 import React, {useState} from "react";
+import {Col, Container, Row} from "react-bootstrap";
 
 //import components
 import Card from "../UI/Card";
 
 //import styles
 import classes from './Box.module.scss'
-import grid from "../UI/grid.module.scss";
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const WrapDrive = (props) => {
 
@@ -18,19 +19,21 @@ const WrapDrive = (props) => {
     }
 
     return (
-        <div>
-            <p className={classes.boxTitle}>Wrap drive:</p>
-            <div className={`${classes.boxWrapper} ${grid.grid}`}>
+        <Container>
+            <Row xs={12} className={classes.boxTitle}>Wrap drive:</Row>
+            <Row xs={12}>
                     {items?.map((item, index) => {
                         return (
-                            <Card key={Math.random()} className={`${classes.box} ${grid.gridCol4}`} onClick={e => onSelectedItem(index)} active={index === indexCurrentItem}>
-                                <p>{item.title}</p>
-                                <p>+{item.price}€</p>
-                            </Card>
+                            <Col xs={12} sm={4}>
+                                <Card key={Math.random()} className={classes.box} onClick={e => onSelectedItem(index)} active={index === indexCurrentItem}>
+                                    <p>{item.title}</p>
+                                    <p>+{item.price}€</p>
+                                </Card>
+                            </Col>
                         )
                     })}
-            </div>
-        </div>
+            </Row>
+        </Container>
     )
 };
 

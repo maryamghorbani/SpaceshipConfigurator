@@ -7,10 +7,11 @@
     width: 70vw;
 }
 .title {
+    justify-content: center;
     text-align: center;
     font-weight: 400;
     color: $primary-font-color;
     letter-spacing: 0.2em;
     font-size: 1.5em;
-    line-height: 2em;
+    margin-bottom: 2%;
 }

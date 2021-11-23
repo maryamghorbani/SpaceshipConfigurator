@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from "react";
+import {Col, Row} from "react-bootstrap";
 
 //import component
 import Card from "./UI/Card";
 import Receipt from "./Receipt";
 
 //import styles
+import 'bootstrap/dist/css/bootstrap.min.css'
 import classes from './SpaceshipConfigurator.module.scss'
-import grid from './UI/grid.module.scss'
 import SelectColor from "./SelectableOptions/SelectColor";
 import SelectPower from "./SelectableOptions/SelectPower";
 import WrapDrive from "./SelectableOptions/WrapDrive";
 import SelectOptionPackage from "./SelectableOptions/SelectOptionPackage";
+import {Container} from "react-bootstrap";
 
 const SpaceshipConfigurator = props => {
 
@@ -138,8 +140,8 @@ const SpaceshipConfigurator = props => {
     }, [])
 
     // receipt items
-    useEffect(() =>{
-        setReceiptTotalPrice(Object.keys(receiptItems).reduce(function(prev, current) {
+    useEffect(() => {
+        setReceiptTotalPrice(Object.keys(receiptItems).reduce(function (prev, current) {
             return prev + +receiptItems[current].price
         }, 0))
     }, [receiptItems])
@@ -153,8 +155,7 @@ const SpaceshipConfigurator = props => {
             }
         }))
     }
-
-    const onReceivedPower = item =>{
+    const onReceivedPower = item => {
         setReceiptItems(prevState => ({
             ...prevState, "power": {
                 title: "power",
@@ -163,7 +164,7 @@ const SpaceshipConfigurator = props => {
             }
         }))
     }
-    const onReceivedWrapDrive = item =>{
+    const onReceivedWrapDrive = item => {
         setReceiptItems(prevState => ({
             ...prevState, "wrapDrive": {
                 title: "wrap drive",
@@ -172,7 +173,7 @@ const SpaceshipConfigurator = props => {
             }
         }))
     }
-    const onReceivedOptionPackage = item =>{
+    const onReceivedOptionPackage = item => {
         setReceiptItems(prevState => ({
             ...prevState, "optionPackage": {
                 title: "option package",
@@ -184,18 +185,20 @@ const SpaceshipConfigurator = props => {
 
     return (
         <Card className={classes.Wrapper}>
-            <div>
-                <p className={classes.title}>Spaceship Configurator</p>
-                <div className={grid.grid}>
-                    <div className={grid.gridCol8}>
+            <Container>
+                <Row className={classes.title}>Spaceship Configurator</Row>
+                <Row>
+                    <Col xs={12} md={8}>
                         <SelectColor items={colors} onReceivedItem={onReceivedColor}/>
                         <SelectPower items={powers} onReceivedItem={onReceivedPower}/>
                         <WrapDrive items={wrapDrives} onReceivedItem={onReceivedWrapDrive}/>
                         <SelectOptionPackage items={optionPackages} onReceivedItem={onReceivedOptionPackage}/>
-                    </div>
-                    <Receipt className={grid.gridCol4} items={receiptItems} totalPrice={receiptTotalPrice}/>
-                </div>
-            </div>
+                    </Col>
+                    <Col xs={12} md={4}>
+                        <Receipt items={receiptItems} totalPrice={receiptTotalPrice}/>
+                    </Col>
+                </Row>
+            </Container>
         </Card>
     )
 };
