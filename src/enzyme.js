@@ -1,5 +1,5 @@
-import Enzyme , {configure, shallow } from 'enzyme';
-import Adapter from 'enyme-adapter-react-16';
-configure({adapter: new Adapter()});
-export {shallow, mount, render};
+import Enzyme, { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16'
+configure({ adapter: new Adapter() });
+export { shallow };
 export default Enzyme;
