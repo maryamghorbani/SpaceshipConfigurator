@@ -1,7 +1,7 @@
 import React from 'react';
 
 //import component
-import SpaceshipConfigurator from "./Component/SpaceshipConfigurator";
+import SpaceshipConfigurator from "./Components/SpaceshipConfigurator";
 
 
 function App() {
