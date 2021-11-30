@@ -65,7 +65,4 @@ describe('<SpaceshipConfigurator /> with no props', () => {
             expect(packageComponent.find(<Card/>)).toBeTruthy();
         });
     });
-
 });
-
-
