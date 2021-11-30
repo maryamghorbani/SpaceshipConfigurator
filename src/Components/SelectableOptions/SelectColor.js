@@ -21,14 +21,14 @@ const SelectColor = props => {
     return (
         <Container>
             <Row xs={12} className={classes.boxTitle}>Select color:</Row>
-            <Row xs={12}>
+            <Row data-testid='colors' xs={12}>
                 {items?.map((item, index) => {
                     return (
                         <Col xs={12} sm={4}>
                             <Card key={item.title} className={classes.box} onClick={e => onSelectedItem(index)} active={index === indexCurrentItem}>
-                                <div className={classes.colorBox} style={{backgroundColor: `${item.color}`}}/>
-                                <p>+{item.price}€</p>
-                                <p>{item.title}</p>
+                                <div data-testid='colorBox' className={classes.colorBox} style={{backgroundColor: `${item.color}`}}/>
+                                <p data-testid='colorPrice'>+{item.price}€</p>
+                                <p data-testid='colorTitle'>{item.title}</p>
                             </Card>
                         </Col>
                     )
