@@ -1,7 +1,7 @@
 import React from "react";
 import {shallow} from 'enzyme';
 import '@testing-library/jest-dom/extend-expect';
-import {cleanup} from '@testing-library/react'
+import { render, screen, cleanup } from '@testing-library/react';
 
 //import components
 import SpaceshipConfigurator from "./Components/SpaceshipConfigurator";
@@ -36,6 +36,10 @@ describe('<SpaceshipConfigurator /> with no props', () => {
         it('should have Card component', () => {
             expect(colorComponent.find(<Card/>)).toBeTruthy();
         });
+        it('should have a div via initialColorProps.color background', () => {
+            const { getByTestId } = render(<SelectColor />)
+            expect(getByTestId("colorBox")).toHaveStyle('background-color: #fff');
+        })
     });
     describe('<SelectPower /> with props', () => {
         const powerComponent = shallow(<SelectPower/>);
