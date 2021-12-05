@@ -71,7 +71,12 @@ describe('<SpaceshipConfigurator /> with no props', () => {
         });
     });
     describe('<WrapDrive /> with props', () => {
-        const driveComponent = shallow(<WrapDrive/>);
+        const initialDriveProps = {items: [{
+                price: 100,
+                title: "Yes",
+            }]};
+        const driveComponent = shallow(<WrapDrive {...initialDriveProps} />);
+        const driveWrapper = driveComponent.find(Card);
 
         it('should have an title', () => {
             expect(driveComponent.find({className: 'boxTitle'}).text()).toEqual('Wrap drive:');
@@ -79,14 +84,11 @@ describe('<SpaceshipConfigurator /> with no props', () => {
         it('should have Card component', () => {
             expect(driveComponent.find(<Card/>)).toBeTruthy();
         });
-    });
-    describe('<SelectOptionPackage /> with props', () => {
-        const packageComponent = shallow(<SelectOptionPackage/>);
-        it('should have an title', () => {
-            expect(packageComponent.find({className: 'boxTitle'}).text()).toEqual('Select option package:');
+        it('drive component should have p element with expected text', () => {
+            expect(driveWrapper.at(0).find('p').at(0).text()).toEqual('Yes')
         });
-        it('should have Card component', () => {
-            expect(packageComponent.find(<Card/>)).toBeTruthy();
+        it('drive component should have p element with expected text', () => {
+            expect(driveWrapper.at(0).find('p').at(1).text()).toEqual('+100€')
         });
     });
 });
