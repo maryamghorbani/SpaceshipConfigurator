@@ -91,4 +91,31 @@ describe('<SpaceshipConfigurator /> with no props', () => {
             expect(driveWrapper.at(0).find('p').at(1).text()).toEqual('+100€')
         });
     });
+    describe('<SelectOptionPackage /> with props', () => {
+        const initialPackageProps = {items: [{
+                price: 9,
+                title: "Gold",
+                features: [
+                    "Cloths seats",
+                    "Air conditioning"
+                ]
+            }]};
+        const packageComponent = shallow(<SelectOptionPackage {...initialPackageProps} />);
+        const packageWrapper = packageComponent.find(Card);
+        it('should have an title', () => {
+            expect(packageComponent.find({className: 'boxTitle'}).text()).toEqual('Select option package:');
+        });
+        it('should have Card component', () => {
+            expect(packageComponent.find(<Card/>)).toBeTruthy();
+        });
+        it('package component should have p element with expected text', () => {
+            expect(packageWrapper.at(0).find('p').at(0).text()).toEqual('Gold')
+        });
+        it('package component should have p element with expected text', () => {
+            expect(packageWrapper.at(0).find('p').at(1).text()).toEqual('+9€')
+        });
+        it('package component should have p element with expected text', () => {
+            expect(packageWrapper.at(0).find('div').at(0).text()).toEqual('Cloths seatsAir conditioning')
+        });
+    });
 });
