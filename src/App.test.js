@@ -49,7 +49,6 @@ describe('<SpaceshipConfigurator /> with no props', () => {
         it('should have p element with expected text', () => {
             expect(wrapper.at(0).find('p').at(1).text()).toEqual('Snow')
         });
-
     });
     describe('<SelectPower /> with props', () => {
         const powerComponent = shallow(<SelectPower/>);
@@ -62,6 +61,7 @@ describe('<SpaceshipConfigurator /> with no props', () => {
     });
     describe('<WrapDrive /> with props', () => {
         const driveComponent = shallow(<WrapDrive/>);
+
         it('should have an title', () => {
             expect(driveComponent.find({className: 'boxTitle'}).text()).toEqual('Wrap drive:');
         });
