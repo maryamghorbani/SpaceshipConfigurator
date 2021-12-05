@@ -1,7 +1,7 @@
 import React from "react";
 import {shallow} from 'enzyme';
 import '@testing-library/jest-dom/extend-expect';
-import { render, screen, cleanup } from '@testing-library/react';
+import {cleanup} from '@testing-library/react'
 
 //import components
 import SpaceshipConfigurator from "./Components/SpaceshipConfigurator";
@@ -24,22 +24,32 @@ describe('<SpaceshipConfigurator /> with no props', () => {
     });
 
     describe('<SelectColor /> with props', () => {
-        const initialColorProps = {
+        const initialColorProps = {items: [{
             color: "#ffffff",
-            price: 0,
+            price: 25,
             title: "Snow",
-        };
+        }]};
         const colorComponent = shallow(<SelectColor {...initialColorProps} />);
+        const wrapper = colorComponent.find(Card);
         it('should have an title', () => {
             expect(colorComponent.find({className: 'boxTitle'}).text()).toEqual('Select color:');
         });
         it('should have Card component', () => {
-            expect(colorComponent.find(<Card/>)).toBeTruthy();
+            expect(colorComponent.find(<Card/>).exists).toBeTruthy();
         });
-        it('should have a div via initialColorProps.color background', () => {
-            const { getByTestId } = render(<SelectColor />)
-            expect(getByTestId("colorBox")).toHaveStyle('background-color: #fff');
-        })
+        it('Card should have a {title} key', function () {
+            expect(wrapper.at(0).key()).toEqual('Snow');
+        });
+        it('should have div element with expected text', () => {
+            expect(wrapper.at(0).find('div').at(0).text()).toEqual('')
+        });
+        it('should have p element with expected text', () => {
+            expect(wrapper.at(0).find('p').at(0).text()).toEqual('+25€')
+        });
+        it('should have p element with expected text', () => {
+            expect(wrapper.at(0).find('p').at(1).text()).toEqual('Snow')
+        });
+
     });
     describe('<SelectPower /> with props', () => {
         const powerComponent = shallow(<SelectPower/>);
