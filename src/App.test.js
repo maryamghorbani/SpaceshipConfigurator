@@ -30,7 +30,7 @@ describe('<SpaceshipConfigurator /> with no props', () => {
             title: "Snow",
         }]};
         const colorComponent = shallow(<SelectColor {...initialColorProps} />);
-        const wrapper = colorComponent.find(Card);
+        const colorWrapper = colorComponent.find(Card);
         it('should have an title', () => {
             expect(colorComponent.find({className: 'boxTitle'}).text()).toEqual('Select color:');
         });
@@ -38,25 +38,36 @@ describe('<SpaceshipConfigurator /> with no props', () => {
             expect(colorComponent.find(<Card/>).exists).toBeTruthy();
         });
         it('Card should have a {title} key', function () {
-            expect(wrapper.at(0).key()).toEqual('Snow');
+            expect(colorWrapper.at(0).key()).toEqual('Snow');
         });
         it('should have div element with expected text', () => {
-            expect(wrapper.at(0).find('div').at(0).text()).toEqual('')
+            expect(colorWrapper.at(0).find('div').at(0).text()).toEqual('')
         });
-        it('should have p element with expected text', () => {
-            expect(wrapper.at(0).find('p').at(0).text()).toEqual('+25€')
+        it('color component should have p element with expected text', () => {
+            expect(colorWrapper.at(0).find('p').at(0).text()).toEqual('+25€')
         });
-        it('should have p element with expected text', () => {
-            expect(wrapper.at(0).find('p').at(1).text()).toEqual('Snow')
+        it('color component should have p element with expected text', () => {
+            expect(colorWrapper.at(0).find('p').at(1).text()).toEqual('Snow')
         });
     });
     describe('<SelectPower /> with props', () => {
-        const powerComponent = shallow(<SelectPower/>);
+        const initialPowerProps = {items: [{
+                price: 30,
+                title: "1000 MV",
+            }]};
+        const powerComponent = shallow(<SelectPower {...initialPowerProps} />);
+        const powerWrapper = powerComponent.find(Card);
         it('should have an title', () => {
             expect(powerComponent.find({className: 'boxTitle'}).text()).toEqual('Select power:');
         });
         it('should have Card component', () => {
             expect(powerComponent.find(<Card/>)).toBeTruthy();
+        });
+        it('power component should have p element with expected text', () => {
+            expect(powerWrapper.at(0).find('p').at(0).text()).toEqual('1000 MV')
+        });
+        it('power component should have p element with expected text', () => {
+            expect(powerWrapper.at(0).find('p').at(1).text()).toEqual('+30€')
         });
     });
     describe('<WrapDrive /> with props', () => {
