@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <coverage generated="1638573064505" clover="3.2.0">
   <project timestamp="1638573064505" name="All files">
+=======
+<coverage generated="1638693135945" clover="3.2.0">
+  <project timestamp="1638693135945" name="All files">
+>>>>>>> master
     <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
   </project>
 </coverage>

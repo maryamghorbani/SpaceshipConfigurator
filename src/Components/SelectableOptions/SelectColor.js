@@ -27,9 +27,15 @@ const SelectColor = props => {
                     return (
                         <Col xs={12} sm={4}>
                             <Card key={item.title} className={classes.box} onClick={e => onSelectedItem(index)} active={index === indexCurrentItem}>
+<<<<<<< HEAD
                                 <div data-testid="colorBox" className={classes.colorBox} style={{backgroundColor: `${item.color}`}}/>
                                 <p data-testid=''>+{item.price}€</p>
                                 <p data-testid='colorTitle'>{item.title}</p>
+=======
+                                <div className={classes.colorBox} style={{backgroundColor: `${item.color}`}}/>
+                                <p>+{item.price}€</p>
+                                <p>{item.title}</p>
+>>>>>>> master
                             </Card>
                         </Col>
                     )
